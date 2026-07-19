@@ -7,6 +7,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
 
 ## Índice
 
+- [12 — Fundamentos: Linux, Docker y Django (Módulo 51)](12-fundamentos-linux-docker-django.md):
+  Linux/terminal/SSH, contenedor vs imagen vs Dockerfile, YAML, estructura de un
+  proyecto Django y una primera mirada al ORM. Buen punto de partida si algo de los
+  otros dos módulos no quedó claro.
 - [13 — Vistas, CRUD y consultas (Módulo 52)](13-vistas-crud-y-consultas.md): CRUD,
   vistas genéricas (`ListView`, `DetailView`/`RetrieveView`, `UpdateView`), `render`,
   `get_object_or_404`, `login_required`, Middleware y consultas complejas con `Q`.
