@@ -19,6 +19,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   modelos, qué son las migraciones, Shell de Django, opciones de campos, modelos
   abstractos, creación a granel, SlugField, señales, fixtures y llaves foráneas.
   Incluye glosario del módulo y autoevaluación con preguntas de repaso.
+- [15 — CBV, Mixins y formularios (Módulo 54)](15-cbv-mixins-formularios.md): FBV vs
+  CBV, las vistas genéricas (`TemplateView`, `ListView`, `DetailView`, `CreateView`,
+  `UpdateView`, `DeleteView`, `RedirectView`), Mixins, `LoginRequiredMixin` y Model
+  Forms.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
