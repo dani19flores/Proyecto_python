@@ -1,9 +1,10 @@
 from rest_framework.routers import DefaultRouter
 
-from .views import ShipmentStatusEventViewSet, ShipmentViewSet
+from .views import EstatusViewSet, GuiaViewSet, UsuarioViewSet
 
 router = DefaultRouter()
-router.register('shipments', ShipmentViewSet, basename='shipment')
-router.register('status-events', ShipmentStatusEventViewSet, basename='status-event')
+router.register('guias', GuiaViewSet, basename='guia')
+router.register('estatus', EstatusViewSet, basename='estatus')
+router.register('usuarios', UsuarioViewSet, basename='usuario')
 
 urlpatterns = router.urls

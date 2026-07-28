@@ -1,8 +1,9 @@
 # Hound Express — API de estatus de envíos
 
-Proyecto backend construido con Django y Django REST Framework para el manejo de eventos
-que crean/actualizan el estatus de los envíos administrados por la paquetería Hound Express.
-Los estatus se almacenan en la base de datos para referencia futura.
+Proyecto backend construido con Django y Django REST Framework para el manejo de las
+entidades de base de datos de Hound Express: guías (envíos), su historial de estatus
+y los usuarios que los actualizan. Los datos se almacenan en la base de datos para que
+la aplicación Front pueda consultarlos y presentar el detalle de cada envío.
 
 ## Requisitos
 
@@ -27,54 +28,66 @@ La aplicación quedará disponible en `http://127.0.0.1:8000/`.
 
 ## Modelo de datos
 
-- **Shipment**: representa un envío (remitente, destinatario, peso, número de guía autogenerado
-  y estatus actual).
-- **ShipmentStatusEvent**: representa un evento del historial de estatus de un envío (creado,
-  recolectado, en tránsito, en reparto, entregado, intento fallido, devuelto, cancelado). Cada
-  evento nuevo actualiza automáticamente el `current_status` del envío al que pertenece.
+- **Guia** (tabla `Guide`): representa un envío — número de rastreo, origen, destino
+  y estatus actual.
+- **Estatus** (tabla `StatusHistory`): representa un evento del historial de estatus
+  de una guía (referenciada por `guideId`), quién lo actualizó y cuándo.
+- **Usuario** (tabla `User`): representa a quien puede actualizar estatus — nombre,
+  correo y contraseña (nunca se expone en la API).
+
+Los nombres de campo siguen `camelCase` (no el `snake_case` habitual de Python) a
+propósito, para coincidir con el modelo de datos que consume el Front.
 
 ## Endpoints de la API
 
-| Método | Endpoint                              | Descripción                                   |
-|--------|----------------------------------------|------------------------------------------------|
-| GET    | `/api/shipments/`                      | Lista todos los envíos                         |
-| POST   | `/api/shipments/`                      | Crea un nuevo envío                            |
-| GET    | `/api/shipments/{id}/`                 | Detalle de un envío + su historial de estatus  |
-| PATCH  | `/api/shipments/{id}/`                 | Actualiza datos del envío                      |
-| DELETE | `/api/shipments/{id}/`                 | Elimina un envío                               |
-| GET    | `/api/shipments/{id}/status_history/`  | Historial de estatus de un envío               |
-| GET    | `/api/status-events/`                  | Lista todos los eventos de estatus             |
-| POST   | `/api/status-events/`                  | Crea un evento de estatus (actualiza el envío) |
-| GET    | `/api/status-events/?shipment={id}`    | Filtra eventos por envío                       |
+| Método | Endpoint                              | Descripción                                     |
+|--------|------------------------------------------|---------------------------------------------------|
+| GET    | `/api/guias/`                            | Lista todas las guías                              |
+| POST   | `/api/guias/`                            | Crea una guía nueva                                |
+| GET    | `/api/guias/{id}/`                       | Detalle de una guía                                |
+| PATCH  | `/api/guias/{id}/`                       | Actualiza datos de una guía                        |
+| DELETE | `/api/guias/{id}/`                       | Elimina una guía                                   |
+| GET    | `/api/guias/{id}/estatus_history/`       | Historial de estatus de esa guía                   |
+| GET    | `/api/estatus/`                          | Lista todos los eventos de estatus                 |
+| POST   | `/api/estatus/`                          | Crea un evento de estatus                          |
+| GET    | `/api/estatus/?guideId={id}`             | Filtra eventos de estatus por guía                 |
+| GET    | `/api/usuarios/`                         | Lista usuarios                                     |
+| POST   | `/api/usuarios/`                         | Crea un usuario                                    |
+| GET    | `/api/usuarios/{id}/`                    | Detalle de un usuario                              |
+| PATCH  | `/api/usuarios/{id}/`                    | Actualiza un usuario                               |
+| DELETE | `/api/usuarios/{id}/`                    | Elimina un usuario                                 |
 
 También está disponible el panel de administración en `/admin/`.
 
-### Ejemplo: crear un envío
+### Ejemplo: crear una guía
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/shipments/ \
+curl -X POST http://127.0.0.1:8000/api/guias/ \
   -H "Content-Type: application/json" \
   -d '{
-        "sender_name": "Hound Express HQ",
-        "sender_address": "CDMX",
-        "recipient_name": "Juan Perez",
-        "recipient_address": "GDL",
-        "weight_kg": "2.50"
+        "id": 1,
+        "trackingNumber": "HE0000001",
+        "origin": "CDMX",
+        "destination": "GDL",
+        "currentStatus": "created"
       }'
 ```
 
 ### Ejemplo: registrar un evento de estatus
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/status-events/ \
+curl -X POST http://127.0.0.1:8000/api/estatus/ \
   -H "Content-Type: application/json" \
   -d '{
-        "shipment": 1,
+        "id": 1,
+        "guideId": 1,
         "status": "picked_up",
-        "location": "CDMX Sucursal Centro",
-        "notes": "Recolectado por el repartidor"
+        "updatedBy": "operador1"
       }'
 ```
+
+Nota: `id` es requerido al crear (`IntegerField` como llave primaria, no autoincremental
+en estos modelos), a diferencia del `id` autogenerado habitual de Django.
 
 ## Estructura del proyecto
 

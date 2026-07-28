@@ -1,38 +1,42 @@
 from rest_framework import serializers
 
-from .models import Shipment, ShipmentStatusEvent
+from .models import Estatus, Guia, Usuario
 
 
-class ShipmentStatusEventSerializer(serializers.ModelSerializer):
-    status_display = serializers.CharField(source='get_status_display', read_only=True)
-
+class GuiaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ShipmentStatusEvent
+        model = Guia
         fields = [
-            'id', 'shipment', 'status', 'status_display',
-            'location', 'notes', 'created_at',
+            'id', 'trackingNumber', 'origin', 'destination',
+            'createdAt', 'updatedAt', 'currentStatus',
         ]
-        read_only_fields = ['id', 'created_at']
+        read_only_fields = ['createdAt', 'updatedAt']
+
+    def create(self, validated_data):
+        # createdAt's default (timezone.now) is a datetime; refresh from DB so
+        # it comes back as the date DateField actually stores, not the raw
+        # in-memory datetime DRF refuses to serialize.
+        instance = super().create(validated_data)
+        instance.refresh_from_db()
+        return instance
 
 
-class ShipmentSerializer(serializers.ModelSerializer):
-    current_status_display = serializers.CharField(
-        source='get_current_status_display', read_only=True
-    )
-
+class EstatusSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Shipment
-        fields = [
-            'id', 'tracking_number', 'sender_name', 'sender_address',
-            'recipient_name', 'recipient_address', 'weight_kg',
-            'current_status', 'current_status_display',
-            'created_at', 'updated_at',
-        ]
-        read_only_fields = ['id', 'tracking_number', 'current_status', 'created_at', 'updated_at']
+        model = Estatus
+        fields = ['id', 'guideId', 'status', 'timestamp', 'updatedBy']
+        read_only_fields = ['timestamp']
 
 
-class ShipmentDetailSerializer(ShipmentSerializer):
-    status_events = ShipmentStatusEventSerializer(many=True, read_only=True)
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = ['id', 'name', 'email', 'password', 'createdAt', 'updatedAt']
+        read_only_fields = ['createdAt', 'updatedAt']
+        extra_kwargs = {'password': {'write_only': True}}
 
-    class Meta(ShipmentSerializer.Meta):
-        fields = ShipmentSerializer.Meta.fields + ['status_events']
+    def create(self, validated_data):
+        # Same createdAt datetime-vs-date issue as GuiaSerializer.
+        instance = super().create(validated_data)
+        instance.refresh_from_db()
+        return instance
