@@ -23,6 +23,11 @@ comandos, sino entender qué hacen y cuándo usarlos.
   CBV, las vistas genéricas (`TemplateView`, `ListView`, `DetailView`, `CreateView`,
   `UpdateView`, `DeleteView`, `RedirectView`), Mixins, `LoginRequiredMixin` y Model
   Forms.
+- [16 — Usuario personalizado, vistas protegidas y templates (Módulo 55)](16-usuarios-personalizados-y-templates.md):
+  clonar repos por SSH, `AbstractBaseUser` + `UserManager`, `TemplateView` protegida
+  (`SalesView`), template base (`layout.html`) y meta tags. Incluye comparación con
+  el `Usuario` real de este proyecto (por qué no es lo mismo que un modelo de
+  autenticación).
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
