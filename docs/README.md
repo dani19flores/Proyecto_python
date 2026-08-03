@@ -28,6 +28,15 @@ comandos, sino entender qué hacen y cuándo usarlos.
   (`SalesView`), template base (`layout.html`) y meta tags. Incluye comparación con
   el `Usuario` real de este proyecto (por qué no es lo mismo que un modelo de
   autenticación).
+- [17 — Órdenes, facturación y señales (Módulo 56)](17-ordenes-facturacion-y-senales.md):
+  el dominio de ejemplo (`Order`, `Address`, `Billing`, `Carts`, `Product`),
+  `ForeignKey` en un caso real, `pre_save`/`post_save` a fondo con `Order`, y
+  `get_absolute_url`. Contrasta el `ForeignKey` real de `Order` con el
+  `IntegerField` suelto que usamos en `Estatus.guideId`.
+- [18 — Migraciones avanzadas, OneToOneField y errores comunes (Módulo 57)](18-migraciones-avanzadas-y-onetoone.md):
+  las 7 opciones de `on_delete`, `OneToOneField` vs `ForeignKey`, Pillow y
+  `ImageField`, y los errores más comunes al trabajar con migraciones (imports
+  desactualizados, dependencias entre modelos, revertir/reaplicar).
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
