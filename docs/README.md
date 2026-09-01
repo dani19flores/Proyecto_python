@@ -42,6 +42,11 @@ comandos, sino entender qué hacen y cuándo usarlos.
   CDN, `timedelta` para rangos de fecha, y los métodos reales de `OrderManager`
   (`total_data`, `by_weeks_range`, `get_sales_breakdown`). Incluye cómo se vería
   aplicado a Hound Express.
+- [20 — Django Forms, campos, widgets y Formsets (Módulo 59)](20-django-forms.md):
+  `forms.Form` vs `ModelForm`, tipos de campo (`CharField`, `BooleanField`,
+  `IntegerField`, `EmailField`), widgets (`CheckboxSelectMultiple`), `clean_<campo>`
+  y `Formsets`. Cierra con el paralelo exacto: Django Forms para HTML ↔ Serializers
+  de DRF para JSON.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
