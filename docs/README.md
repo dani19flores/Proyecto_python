@@ -37,6 +37,11 @@ comandos, sino entender qué hacen y cuándo usarlos.
   las 7 opciones de `on_delete`, `OneToOneField` vs `ForeignKey`, Pillow y
   `ImageField`, y los errores más comunes al trabajar con migraciones (imports
   desactualizados, dependencias entre modelos, revertir/reaplicar).
+- [19 — AJAX, Chart.js y OrderManager a fondo (Módulo 58)](19-ajax-charts-y-order-manager.md):
+  la CBV base `View`, `JsonResponse` vs `Response` de DRF, AJAX/jQuery, Chart.js vía
+  CDN, `timedelta` para rangos de fecha, y los métodos reales de `OrderManager`
+  (`total_data`, `by_weeks_range`, `get_sales_breakdown`). Incluye cómo se vería
+  aplicado a Hound Express.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
