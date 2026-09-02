@@ -47,6 +47,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `IntegerField`, `EmailField`), widgets (`CheckboxSelectMultiple`), `clean_<campo>`
   y `Formsets`. Cierra con el paralelo exacto: Django Forms para HTML ↔ Serializers
   de DRF para JSON.
+- [21 — Django Templates: herencia, bloques, ciclos y filtros (Módulo 60)](21-django-templates.md):
+  `{% extends %}`/`{% block %}`, `{% include %}`, `{% for %}` con `forloop`/`cycle`,
+  y la tabla de filtros más comunes (`|title`, `|add`, `|date`, etc.). Incluye un
+  ejemplo mínimo que junta los 4 conceptos usando datos de `Guia`.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
