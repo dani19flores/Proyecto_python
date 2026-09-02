@@ -51,6 +51,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `{% extends %}`/`{% block %}`, `{% include %}`, `{% for %}` con `forloop`/`cycle`,
   y la tabla de filtros más comunes (`|title`, `|add`, `|date`, etc.). Incluye un
   ejemplo mínimo que junta los 4 conceptos usando datos de `Guia`.
+- [22 — Fundamentos de APIs REST (Módulo 61)](22-rest-apis-fundamentos.md): los 5
+  principios de REST aplicados línea por línea a Hound Express, JSON vs
+  diccionarios de Python, `APIView` (la pieza real de la que heredan nuestros
+  `ModelViewSet`), y cómo probar la API con Postman.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
