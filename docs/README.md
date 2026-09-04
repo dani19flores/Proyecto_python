@@ -55,6 +55,14 @@ comandos, sino entender qué hacen y cuándo usarlos.
   principios de REST aplicados línea por línea a Hound Express, JSON vs
   diccionarios de Python, `APIView` (la pieza real de la que heredan nuestros
   `ModelViewSet`), y cómo probar la API con Postman.
+- [23 — APIView vs ViewSet, y cómo funciona el Router (Módulo 62)](23-apiview-vs-viewset.md):
+  reescribe `GuiaViewSet` a mano con `APIView` para ver exactamente cuánto ahorra
+  `ModelViewSet`, y explica de dónde salen nuestras URLs reales vía `DefaultRouter`.
+  Incluye las 6 acciones del ViewSet mapeadas a ejemplos reales de este proyecto.
+- [24 — Paginación y seguridad en DRF (Módulo 63)](24-paginacion-y-seguridad-drf.md):
+  `PageNumberPagination` (la que ya usa este proyecto), `LimitOffsetPagination`,
+  `CursorPagination`, y por qué desactivar `BrowsableAPIRenderer` en producción es
+  una capa más de seguridad de API.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
