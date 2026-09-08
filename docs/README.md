@@ -63,6 +63,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `PageNumberPagination` (la que ya usa este proyecto), `LimitOffsetPagination`,
   `CursorPagination`, y por qué desactivar `BrowsableAPIRenderer` en producción es
   una capa más de seguridad de API.
+- [25 — Autenticación: básica, tokens y JWT (Módulo 64)](25-autenticacion-tokens-jwt.md):
+  autenticación básica vs por tokens, `Permisos` de DRF, JWT/Simple JWT, y el plan
+  concreto para agregarle autenticación real a `GuiaViewSet`/`EstatusViewSet`/
+  `UsuarioViewSet` (hoy sin protección alguna).
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
