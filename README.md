@@ -40,6 +40,45 @@ propósito, para coincidir con el modelo de datos que consume el Front.
 
 ## Endpoints de la API
 
+### Endpoints con nombre de acción (entrega "Creación de los Endpoints")
+
+Pensados para que el Front llame directo a la operación que necesita:
+
+| Método | Endpoint                              | Descripción                                     |
+|--------|------------------------------------------|---------------------------------------------------|
+| POST   | `/api/crear-guia`                        | Crea una guía nueva                                |
+| GET    | `/api/obtener-guia/{id}`                 | Consulta una guía por su ID                        |
+| PATCH  | `/api/actualizar-guia/{id}`              | Actualiza una guía (parcial)                       |
+| PUT    | `/api/actualizar-guia/{id}`              | Actualiza una guía (reemplazo completo — requiere incluir `"id"` en el body, igual al de la URL) |
+| DELETE | `/api/eliminar-guia/{id}`                | Elimina una guía                                   |
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/crear-guia \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": 1,
+        "trackingNumber": "HE0000001",
+        "origin": "CDMX",
+        "destination": "GDL",
+        "currentStatus": "created"
+      }'
+
+curl http://127.0.0.1:8000/api/obtener-guia/1
+
+curl -X PATCH http://127.0.0.1:8000/api/actualizar-guia/1 \
+  -H "Content-Type: application/json" \
+  -d '{"currentStatus": "picked_up"}'
+
+curl -X DELETE http://127.0.0.1:8000/api/eliminar-guia/1
+```
+
+Usan por debajo el mismo `GuiaViewSet` de siempre (ver
+[shipments/views.py](shipments/views.py)), mapeado a mano en
+[shipments/urls.py](shipments/urls.py) con `.as_view({verbo: acción})` en vez de
+dejar que el router las nombre.
+
+### Endpoints RESTful (vía router)
+
 | Método | Endpoint                              | Descripción                                     |
 |--------|------------------------------------------|---------------------------------------------------|
 | GET    | `/api/guias/`                            | Lista todas las guías                              |
