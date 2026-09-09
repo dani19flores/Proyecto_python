@@ -67,6 +67,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   autenticación básica vs por tokens, `Permisos` de DRF, JWT/Simple JWT, y el plan
   concreto para agregarle autenticación real a `GuiaViewSet`/`EstatusViewSet`/
   `UsuarioViewSet` (hoy sin protección alguna).
+- [26 — Web scraping con Selenium y Beautiful Soup (Módulo 65)](26-web-scraping.md):
+  Selenium + ChromeDriver para obtener HTML renderizado, Beautiful Soup y selectores
+  para extraer datos, manejo correcto de la instancia de WebDriver, y cómo limpiar
+  datos extraídos (precios, texto) antes de usarlos.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
