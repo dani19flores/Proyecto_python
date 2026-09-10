@@ -71,6 +71,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   Selenium + ChromeDriver para obtener HTML renderizado, Beautiful Soup y selectores
   para extraer datos, manejo correcto de la instancia de WebDriver, y cómo limpiar
   datos extraídos (precios, texto) antes de usarlos.
+- [27 — Redux Toolkit, Axios y estado global en React (Módulo 66)](27-redux-toolkit-frontend.md):
+  slices, `createAsyncThunk`/`extraReducers`, `useSelector`/`useDispatch`, Local
+  Storage para el carrito, y un `guiasSlice` real que consume
+  `/api/crear-guia`/`/api/obtener-guia` de este mismo proyecto.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
