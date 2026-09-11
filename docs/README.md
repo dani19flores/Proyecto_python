@@ -88,6 +88,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `INNER`/`LEFT`/`RIGHT`/`FULL OUTER`/`CROSS JOIN`, `UNION` vs `UNION ALL`,
   `CASE`, `COALESCE` vs `ISNULL`, y cómo se verían los JOINs entre `Guia` y
   `Estatus` si `guideId` fuera una FK real.
+- [32 — GROUP BY, HAVING y funciones de ventana en SQL (Módulo 71)](32-sql-group-by-window-functions.md):
+  `GROUP BY`/`HAVING`, funciones de ventana con `OVER`/`PARTITION BY`, y las
+  diferencias entre `ROW_NUMBER`/`RANK`/`DENSE_RANK`, conectadas con
+  `.annotate()`/`.aggregate()` del ORM.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
