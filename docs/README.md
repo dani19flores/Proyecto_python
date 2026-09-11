@@ -78,6 +78,9 @@ comandos, sino entender qué hacen y cuándo usarlos.
 - [28 — Fundamentos de bases de datos: SQL, DBMS y modelos (Módulo 67)](28-fundamentos-bases-de-datos.md):
   qué es un DBMS, ANSI SQL, los 4 modelos de base de datos, SQLite vs PostgreSQL/SQL
   Server, y el diagrama de entidad-relación real de Hound Express.
+- [30 — SELECT, llaves, NULL y categorías de comandos SQL (Módulo 68)](30-sql-select-llaves-null.md):
+  `SELECT`/`WHERE`/`ORDER BY`, llave primaria vs foránea, `NULL`, Esquema, y cómo se
+  clasifican todos los comandos SQL en DDL/DML/DCL/TCL.
 - [29 — SQL básico: CREATE, INSERT, UPDATE, DELETE (Módulo 69)](29-sql-basico-crud.md):
   `CREATE TABLE`/`ALTER`/`INSERT`/`UPDATE`/`DELETE`/`TRUNCATE`/`DROP`/`WHERE`, cada
   uno con su equivalente real en el ORM y las migraciones de este proyecto.
