@@ -84,6 +84,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
 - [29 — SQL básico: CREATE, INSERT, UPDATE, DELETE (Módulo 69)](29-sql-basico-crud.md):
   `CREATE TABLE`/`ALTER`/`INSERT`/`UPDATE`/`DELETE`/`TRUNCATE`/`DROP`/`WHERE`, cada
   uno con su equivalente real en el ORM y las migraciones de este proyecto.
+- [31 — JOINs, UNION y funciones condicionales en SQL (Módulo 70)](31-sql-joins-union.md):
+  `INNER`/`LEFT`/`RIGHT`/`FULL OUTER`/`CROSS JOIN`, `UNION` vs `UNION ALL`,
+  `CASE`, `COALESCE` vs `ISNULL`, y cómo se verían los JOINs entre `Guia` y
+  `Estatus` si `guideId` fuera una FK real.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
