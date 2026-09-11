@@ -174,6 +174,42 @@ quisiéramos que "crear una guía + su primer estatus" fuera atómico (todo o na
     que existe en un motor puede no existir igual en otro — hay que mapearlos
     correctamente para no perder precisión ni romper datos.
 
+## Nota práctica: vincular un script `.sql` con una base de datos específica
+
+Un problema común al abrir un archivo `.sql` en SSMS: el script no sabe contra
+**qué base de datos** ejecutarse — depende de cuál esté seleccionada en ese momento
+en la ventana de consulta, y es fácil correr un script contra la base equivocada sin
+darte cuenta. Formas de resolverlo, de más a menos recomendable:
+
+1. **Un `USE` al principio del script** (la más simple y portable):
+   ```sql
+   USE AdventureWorks2022;
+   GO
+
+   SELECT * FROM Person.Person;
+   ```
+   `USE` cambia la base de datos activa **para el resto del script** — así,
+   compartas el archivo con quien lo compartas, siempre se ejecuta contra la base
+   correcta sin depender de qué base tenía seleccionada la ventana de SSMS antes de
+   abrirlo. `GO` separa "lotes" (*batches*) — en SSMS, es buena práctica ponerlo
+   después de un `USE` antes de seguir con el resto del script.
+2. **Base de datos predeterminada de la sesión/login**: en SSMS, se configura por
+   login (`Propiedades del login → General → Base de datos predeterminada`) — útil
+   si *siempre* trabajas contra la misma base, pero no viaja con el archivo `.sql`
+   si lo compartes con alguien más.
+3. **Organizar por carpetas/proyecto**: agrupar los `.sql` de un mismo proyecto en
+   una carpeta (o una "Solución" de SQL Server Data Tools) — ayuda a la organización,
+   pero no selecciona la base de datos automáticamente por sí solo.
+4. **Scripts de conexión personalizados**: útil en flujos más avanzados (CI/CD,
+   herramientas de migración) donde un script previo configura la conexión antes de
+   correr el resto — para trabajo manual en SSMS es más de lo que hace falta.
+
+**Ya lo aplicamos**: el script `consultas_adventureworks.sql` (el ejercicio de
+`SELECT`/`WHERE`/`ORDER BY`/`BETWEEN` contra AdventureWorks, guardado fuera de este
+repo, en la carpeta de ese curso) ahora empieza con `USE AdventureWorks2022;` por
+esta misma razón — así, sin importar qué tenías seleccionado antes en SSMS, el
+script siempre corre contra la base correcta.
+
 ## Ejemplo de uso en el mercado laboral
 
 - **Gestión de inventarios**: llaves primarias/foráneas bien diseñadas garantizan
