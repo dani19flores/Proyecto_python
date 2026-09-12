@@ -92,6 +92,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `GROUP BY`/`HAVING`, funciones de ventana con `OVER`/`PARTITION BY`, y las
   diferencias entre `ROW_NUMBER`/`RANK`/`DENSE_RANK`, conectadas con
   `.annotate()`/`.aggregate()` del ORM.
+- [33 — Subconsultas, CTEs y funciones integradas de SQL (Módulo 72)](33-sql-subconsultas-ctes.md):
+  subconsulta escalar, `EXISTS`, tablas derivadas, CTEs (incluido el recursivo para
+  jerarquías), tablas temporales, y las funciones matemáticas/texto/fecha de SQL
+  Server con ejemplos reales sobre AdventureWorks.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
