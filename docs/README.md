@@ -96,6 +96,10 @@ comandos, sino entender qué hacen y cuándo usarlos.
   subconsulta escalar, `EXISTS`, tablas derivadas, CTEs (incluido el recursivo para
   jerarquías), tablas temporales, y las funciones matemáticas/texto/fecha de SQL
   Server con ejemplos reales sobre AdventureWorks.
+- [34 — Vistas, procedimientos almacenados y T-SQL (Módulo 73)](34-vistas-procedimientos-udf.md):
+  `CREATE VIEW` y vistas materializadas, variables/control de flujo en T-SQL, UDF
+  (escalares y de valor de tabla), procedimientos almacenados con parámetros, y
+  `@@ROWCOUNT` comparado con lo que regresan `.update()`/`.delete()` del ORM.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
