@@ -100,6 +100,15 @@ comandos, sino entender qué hacen y cuándo usarlos.
   `CREATE VIEW` y vistas materializadas, variables/control de flujo en T-SQL, UDF
   (escalares y de valor de tabla), procedimientos almacenados con parámetros, y
   `@@ROWCOUNT` comparado con lo que regresan `.update()`/`.delete()` del ORM.
+- [35 — Administración de SQL Server: usuarios, backups y carga de datos (Módulo 74)](35-administracion-sql-server.md):
+  crear bases de datos, `LOGIN`/`USER`/roles y permisos, políticas de contraseñas,
+  respaldo/restauración, y los 3 métodos para cargar datos (`BULK INSERT`,
+  asistente de importación, ETL).
+- [36 — Modelado de datos: conceptual, lógico, físico y normalización (Módulo 75)](36-modelado-de-datos-y-normalizacion.md):
+  las 3 etapas del modelado aplicadas al propio dominio de `Guia`/`Estatus`,
+  cardinalidad y notación Crow's Foot, las 3 primeras formas normales, y
+  restricciones de datos (`CHECK`, `FOREIGN KEY`) comparadas con las validaciones
+  de Django.
 
 Cuando avances a un tema nuevo, dime qué lección/número toca y te agrego un archivo
 nuevo aquí siguiendo el mismo formato.
